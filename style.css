@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosa: #ff4d8d;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    background-color: #f7f9fe;
+}
+
+/* Fundo do Squeak Fixo */
+.background-squeak {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.background-squeak img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Header */
+.header-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+    align-items: center;
+    color: var(--rosa);
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+}
+
+.header-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.header-nav a {
+    text-decoration: none;
+    color: var(--rosa);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+}
+
+.background img, video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Conteúdo sobreposto */
+.content-container {
+    position: relative;
+    z-index: 3;
+    background: linear-gradient(to bottom, #f7f9fe, rgba(247, 249, 254, 0.9));
+    box-shadow: 0 -20px 40px rgba(0,0,0,0.1);
+}
+
+.section-container {
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-container h2 {
+    font-size: 48px;
+    color: var(--rosa);
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 0px white;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 100%;
+    background: var(--rosa);
+    border-radius: 10px;
+}
+
+.item {
+    width: 100%;
+    margin-bottom: 60px;
+    display: flex;
+}
+
+.item.right { justify-content: flex-end; }
+
+.card {
+    width: 45%;
+    background: white;
+    border: 4px solid var(--rosa);
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 10px 10px 0px var(--rosa);
+    transition: 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Galeria */
+.grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    padding: 30px;
+    background: white;
+    border: 8px solid var(--rosa);
+    border-radius: 30px;
+}
+
+.foto-destaque { grid-column: span 2; grid-row: span 2; }
+.grid-galeria img { width: 100%; height: 100%; object-fit: cover; border-radius: 15px; border: 3px solid var(--rosa); }
+
+/* --- ANIMAÇÕES DE REVELAÇÃO --- */
+.reveal-left { opacity: 0; transform: translateX(-100px); transition: all 1s ease; }
+.reveal-right { opacity: 0; transform: translateX(100px); transition: all 1s ease; }
+.reveal-up { opacity: 0; transform: translateY(50px); transition: all 1s ease; }
+
+.active { opacity: 1; transform: translate(0); }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-nav { flex-direction: column; padding: 20px; justify-content: center;}
+    .timeline-line { left: 20px; transform: none; }
+    .item { padding-left: 45px; justify-content: flex-start !important; }
+    .card { width: 100%; }
+    .grid-galeria { grid-template-columns: 1fr; }
+    .foto-destaque { grid-column: span 1; grid-row: span 1; }
+}
